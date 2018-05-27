@@ -8,13 +8,17 @@ private String genre;
 private int timesPlayed;
 
 //overloaded Constructor
-public Song(String title, String artist, String album, int length, String genre, int timesPlayed) {
+public Song(String title, String artist, String album, int length, String genre) {
 	this.title = title;
 	this.artist = artist;
 	this.album = album;
 	this.length = length;
 	this.genre = genre;
-	this.timesPlayed = timesPlayed;
+	this.timesPlayed = 0;
+}
+
+public Song() {
+	// TODO Auto-generated constructor stub
 }
 
 //Getters and setters
