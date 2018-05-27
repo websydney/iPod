@@ -2,12 +2,17 @@ import java.util.Arrays;
 
 public class iPod {
 	private Song[] songs;
-	private int lastSong;
+	private int numSongs;
 	//constructor
 
 	public iPod(int size) {
-	songs= new Song [size];
-	lastSong=0;
+	
+		if (size > 0) {
+		initializeSongsDynamic(size);
+		}
+		else {
+			initializeSongsStatic();
+		}
 	}
 
 	
@@ -17,7 +22,7 @@ public class iPod {
 	public String toString() {
 		String eol = System.getProperty("line.separator");
 		String iPod = "iPod [ ";
-		for(int i=0; i<lastSong; i++)
+		for(int i=0; i<numSongs; i++)
 		{if(i!=0)
 		{
 			iPod= iPod+"       ";
@@ -37,17 +42,23 @@ public class iPod {
 public void addSong(Song song)
 {
 	
-	songs[lastSong]= song; 
-	lastSong +=1;
+	songs[numSongs]= song; 
+	numSongs +=1;
 }
 	//remove a song from a given list (Whole song list or genre?)
 	//print out all song on a given album
 
 
 
+private void initializeSongsDynamic(int size)
+{
+	songs= new Song [size];
+	numSongs=0;
+}
 
-
-
-	
-
+private void initializeSongsStatic()
+{
+	 songs = new Song[] { new Song("The Last One You'd Expect","A Gentleman's Guide to Love and Murder Company","A Gentleman's Guide to Love and Murder (Original Broadway Cast Recording)",381,"Soundtrack"),
+                          new Song("Blah1", "bob1", "bbbb1", 200, "gladk1")};
+	 numSongs = songs.length;
 }
